@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
@@ -17,16 +17,20 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install dependencies
+      - name: Install System Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libssl-dev libffi-dev liblzma-dev build-essential ccache
-          pip install --upgrade pip setuptools
+
+      - name: Install Python Dependencies
+        run: |
+          pip install --upgrade pip setuptools virtualenv
           pip install buildozer Cython==0.29.33
 
-      - name: Accept Android SDK Licenses & Build APK
+      - name: Build APK (with Auto-License Accept)
         run: |
-          yes | buildozer -v android debug
+          echo "android.accept_sdk_license = True" >> buildozer.spec
+          buildozer -v android debug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
