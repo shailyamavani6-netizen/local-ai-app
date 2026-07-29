@@ -38,6 +38,7 @@ android.minapi = 21
 
 # (bool) Automatically accept SDK license
 android.accept_sdk_license = True
+android.ndk = 25b
 
 # (str) The Android arch to build for
 android.archs = arm64-v8a
