@@ -19,7 +19,7 @@ source.include_exts = py,png,jpg,kv,atlas
 version = 0.1
 
 # (list) Application requirements
-requirements = python3,kivy,numpy
+requirements = python3,kivy,numpy==1.26.4
 
 
 # (str) Supported orientations (one of landscape, sensorLandscape, portrait or all)
