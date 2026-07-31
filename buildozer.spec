@@ -1,53 +1,56 @@
 [app]
 
 # (str) Title of your application
-title = Local AI 3D Engine
+title = Local AI App
 
 # (str) Package name
-package.name = localaiengine
+package.name = localaiapp
 
-# (str) Package domain (needed for android packaging)
+# (str) Package domain (needed for android/ios packaging)
 package.domain = org.test
 
 # (str) Source code where the main.py live
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas
-
-# (str) Application versioning
-version = 0.1
+source.include_exts = py,png,jpg,kv,atlas,json
 
 # (list) Application requirements
-requirements = python3,kivy,numpy==1.26.4
+# comma separated e.g. requirements = sqlite3,kivy
+requirements = python3,kivy,numpy
 
-
-# (str) Supported orientations (one of landscape, sensorLandscape, portrait or all)
+# (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
 
 # (bool) Indicate if the application should be fullscreen or not
 fullscreen = 0
 
-# (list) Permissions
-# android.permissions = INTERNET
+#
+# Android specific
+#
 
-# (int) Target Android API
+# (int) Target Android API, should be as high as possible.
 android.api = 33
 
-# (int) Minimum API your APK will support
+# (int) Minimum API your APK will support (REQUIRED 24+ for numpy)
 android.minapi = 24
 
-# (bool) Automatically accept SDK license
+# (bool) Accept SDK license agreement automatically
 android.accept_sdk_license = True
-android.ndk = 25b
 
 # (str) The Android arch to build for
 android.archs = arm64-v8a
 
-[buildozer]
+# (bool) Enable Android auto backup
+android.allow_backup = True
 
-# (int) Log level (0 = error only, 1 = info, 2 = debug)
+#
+# Buildozer options
+#
+
+# (int) Log level (0 = error only, 1 = info, 2 = debug (with command output))
 log_level = 2
 
-# (int) Display warning if buildozer is run as root
+# (int) Display warning if buildozer is run as root (0 = false, 1 = true)
 warn_on_root = 1
+
