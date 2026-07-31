@@ -15,8 +15,10 @@ source.dir = .
 # (list) Source files to include (let empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas,json
 
+# (str) Application versioning (ADDED!)
+version = 0.1
+
 # (list) Application requirements
-# comma separated e.g. requirements = sqlite3,kivy
 requirements = python3,kivy,numpy
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
@@ -53,4 +55,3 @@ log_level = 2
 
 # (int) Display warning if buildozer is run as root (0 = false, 1 = true)
 warn_on_root = 1
-
